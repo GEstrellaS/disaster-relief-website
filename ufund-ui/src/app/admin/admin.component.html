@@ -1,0 +1,27 @@
+<br>
+<button [routerLink]="['/admin/announcement']">Announcement Management</button>
+<br><br>
+<app-need-search></app-need-search>
+
+<div>
+  <div>
+    <form (ngSubmit)="onSubmit()">
+      <label for="name">Need name:</label>
+      <input id="name" [(ngModel)]="newNeed.name" name="name" />
+
+      <label for="cost">cost: $</label>
+      <input id="cost" [(ngModel)]="newNeed.cost" name="cost" />
+
+      <label for="quantity">Current Quantity:</label>
+      <input id="quantity" [(ngModel)]="newNeed.currentQuantity" name="currentQuantity" />
+
+      <label for="quantity">Required Quantity:</label>
+      <input id="quantity" [(ngModel)]="newNeed.requiredQuantity" name="requiredQuantity" />
+
+      <label for="type">Type:</label>
+      <input id="type" [(ngModel)]="newNeed.type" name="type" />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+

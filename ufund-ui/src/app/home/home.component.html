@@ -1,0 +1,44 @@
+
+<div class="header">
+  <h1>Support Morocco Earthquakes</h1>
+</div>
+
+<div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a routerLink="/about">About</a>
+  <a routerLink="/cart">Cart</a>
+  <a href="#contact">Log Out</a>
+</div>
+
+<h2>Announcements!</h2>
+<div class="announcements">
+  <ng-container *ngIf="announcements.length > 0; else noAnnouncements">
+    <div *ngFor="let announcement of announcements" class="announcement-box">
+      <div class="arrow">&#8594;</div>
+      <h3 class="detail">{{announcement.detail}}</h3>
+    </div>
+  </ng-container>
+  <ng-template #noAnnouncements>
+    <p>No Announcements :(</p>
+  </ng-template>
+</div>
+<br><br>
+
+<div id="search-component">
+  <div class="topnav">
+  <input type="text" class="search-box" #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="Search..."/>
+</div>
+  <h2>Cupboard</h2>
+  <ul class="search-result">
+    <div *ngFor="let need of needs$ | async" class="need-box">
+      <p>Name: {{need.name}}</p>
+      <p>Price: ${{need.cost}}</p>
+      <p>Current Quantity Donated: {{need.currentQuantity}}</p>
+      <p>Required Quantity Donated: {{need.requiredQuantity}}</p>
+      <p>Type: {{need.type}}</p>
+      <button (click)="addToCart(need)">Add to Cart</button>
+    </div>
+  </ul>
+</div>
+
+
